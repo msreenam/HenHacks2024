@@ -11,10 +11,12 @@ class Game:
         self.running = True
 
         self.character_spritesheet = Spritesheet("minigame/images/character.png")
+        self.terrain_spritesheet = Spritesheet("minigame/images/terrain.png")
 
     def createTilemap(self):
         for i, row in enumerate(tilemap):
             for j, column in enumerate(row):
+                Ground(self, j, i)
                 if column == "B":
                     Block(self, j, i)
                 if column == "P":
