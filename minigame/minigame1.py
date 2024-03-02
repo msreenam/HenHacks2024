@@ -21,6 +21,8 @@ class Game:
                     Block(self, j, i)
                 if column == "P":
                     Player(self, j, i)
+                if column == "X":
+                    BananaPeel(self, j, i)
                 
                 
 
