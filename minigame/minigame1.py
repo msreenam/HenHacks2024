@@ -21,6 +21,7 @@ class Game:
         self.clean_spritesheet = Spritesheet("minigame/images/clean.png")
         self.intro_background = pygame.image.load("minigame/images/introbackground.png")
         self.go_background = pygame.image.load("minigame/images/gameover.png")
+        self.meera_spritesheet = Spritesheet("minigame/images/meera.png")
         
 
     def createTilemap(self):
@@ -37,6 +38,8 @@ class Game:
                     PaperBall(self, j, i)
                 if column == "T":
                     Table(self, j, i)
+                if column == "M":
+                    Meera(self, j, i)
                 
                 
 
@@ -48,6 +51,7 @@ class Game:
         self.blocks = pygame.sprite.LayeredUpdates()
         self.trash = pygame.sprite.LayeredUpdates()
         self.clean = pygame.sprite.LayeredUpdates()
+        self.meera = pygame.sprite.LayeredUpdates()
 
         self.createTilemap()
         
