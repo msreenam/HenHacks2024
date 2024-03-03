@@ -56,13 +56,13 @@ class Game:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     if self.player.facing == "up":
-                        Clean(self, self.player.rect.x+10, self.player.rect.y-7)
+                        Clean(self, self.player.rect.x, self.player.rect.y-TILESIZE)
                     if self.player.facing == "down":
-                        Clean(self, self.player.rect.x+10, self.player.rect.y+7)
+                        Clean(self, self.player.rect.x, self.player.rect.y+TILESIZE)
                     if self.player.facing == "left":
-                        Clean(self, self.player.rect.x-7, self.player.rect.y)
+                        Clean(self, self.player.rect.x-TILESIZE, self.player.rect.y)
                     if self.player.facing == "right":
-                        Clean(self, self.player.rect.x+7, self.player.rect.y-10)
+                        Clean(self, self.player.rect.x+TILESIZE, self.player.rect.y)
 
     
     def update(self):
