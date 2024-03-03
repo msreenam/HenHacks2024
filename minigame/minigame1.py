@@ -19,6 +19,7 @@ class Game:
         self.clean_spritesheet = Spritesheet("minigame/images/clean.png")
         self.intro_background = pygame.image.load("minigame/images/introbackground.png")
         self.go_background = pygame.image.load("minigame/images/gameover.png")
+        
 
     def createTilemap(self):
         for i, row in enumerate(tilemap):
@@ -30,6 +31,8 @@ class Game:
                     self.player = Player(self, j, i)
                 if column == "X":
                     BananaPeel(self, j, i)
+                if column == "C":
+                    PaperBall(self, j, i)
                 
                 
 

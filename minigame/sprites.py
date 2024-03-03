@@ -75,10 +75,12 @@ class Player(pygame.sprite.Sprite):
             self.facing = 'down'
 
     def banana_slip(self):
-        hits = pygame.sprite.spritecollide(self, self.game.trash, False)
-        if hits:
-            self.kill()
-            self.game.playing = False
+        banana_peel_hits = pygame.sprite.spritecollide(self, self.game.trash, False, pygame.sprite.collide_mask)
+        if banana_peel_hits:
+            for hit in banana_peel_hits:
+                if isinstance(hit, BananaPeel):
+                    self.kill()
+                    self.game.playing = False
     
     def collide_blocks(self, direction):
         if direction == "x":
@@ -172,6 +174,31 @@ class BananaPeel(pygame.sprite.Sprite):
         self.y_change = 0
 
         image_to_load = pygame.image.load("minigame/images/banana.png")
+        self.image = pygame.Surface([self.width, self.height])
+        self.image.set_colorkey(BLACK)
+        self.image.blit(image_to_load, (0,0))
+
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
+
+class PaperBall(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+
+        self.game = game
+        self._layer = BANANA_LAYER
+        self.groups = self.game.all_sprites, self.game.trash
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width = TILESIZE
+        self.height = TILESIZE
+
+        self.x_change = 0
+        self.y_change = 0
+
+        image_to_load = pygame.image.load("minigame/images/crumple.png")
         self.image = pygame.Surface([self.width, self.height])
         self.image.set_colorkey(BLACK)
         self.image.blit(image_to_load, (0,0))
