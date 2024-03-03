@@ -221,7 +221,31 @@ class Block(pygame.sprite.Sprite):
         self.width = TILESIZE
         self.height = TILESIZE
 
-        self.image = self.game.terrain_spritesheet.get_sprite(960, 448, self.width, self.height)
+        image_to_load = pygame.image.load("minigame/images/bookshelf.png")
+        self.image = pygame.Surface([self.width, self.height])
+        self.image.set_colorkey(BLACK)
+        self.image.blit(image_to_load, (0,0))
+        
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x
+        self.rect.y = self.y
+
+class Table(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = BLOCK_LAYER
+        self.groups = self.game.all_sprites, self.game.blocks
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.x = x * TILESIZE
+        self.y = y * TILESIZE
+        self.width = TILESIZE
+        self.height = TILESIZE
+
+        image_to_load = pygame.image.load("minigame/images/laptop.png")
+        self.image = pygame.Surface([self.width, self.height])
+        self.image.set_colorkey(BLACK)
+        self.image.blit(image_to_load, (0,0))
         
         self.rect = self.image.get_rect()
         self.rect.x = self.x
@@ -239,7 +263,11 @@ class Ground(pygame.sprite.Sprite):
         self.width = TILESIZE
         self.height = TILESIZE
 
-        self.image = self.game.terrain_spritesheet.get_sprite(64,352,self.width,self.height)
+        image_to_load = pygame.image.load("minigame/images/carpet.png")
+        self.image = pygame.Surface([self.width, self.height])
+        self.image.set_colorkey(BLACK)
+        self.image.blit(image_to_load, (0,0))
+
         self.rect = self.image.get_rect()
         self.rect.x = self.x
         self.rect.y = self.y

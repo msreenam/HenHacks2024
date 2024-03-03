@@ -6,6 +6,8 @@ import sys
 class Game:
     def __init__(self):
         pygame.init()
+        
+
         self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.clock = pygame.time.Clock()
         self.running = True
@@ -15,7 +17,7 @@ class Game:
         pygame.mixer.music.play(-1)
 
         self.character_spritesheet = Spritesheet("minigame/images/character.png")
-        self.terrain_spritesheet = Spritesheet("minigame/images/terrain.png")
+        #self.terrain_spritesheet = Spritesheet("minigame/images/terrain.png")
         self.clean_spritesheet = Spritesheet("minigame/images/clean.png")
         self.intro_background = pygame.image.load("minigame/images/introbackground.png")
         self.go_background = pygame.image.load("minigame/images/gameover.png")
@@ -33,6 +35,8 @@ class Game:
                     BananaPeel(self, j, i)
                 if column == "C":
                     PaperBall(self, j, i)
+                if column == "T":
+                    Table(self, j, i)
                 
                 
 
@@ -70,7 +74,7 @@ class Game:
     
     def update(self):
         self.all_sprites.update()
-        
+    
     def draw(self):
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
