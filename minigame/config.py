@@ -28,9 +28,9 @@ tilemap = [
     "B.X..............B......B............CB",
     "B......BBBBBBBBBBBBBBBBBBBBBBBBBB.....B",
     "B..C........B.X..........B...........TB",
-    "B...........B....CC......B..M...X....TB",
+    "B.......M........CC......B..M...X....TB",
     "B...BBBBBBBBB........BBBBB...........TB",
     "B...........BXXX.........B............B",
-    "B.X..T......B.....C.........C.CCCC....B",
+    "B.X..T......B.....C..M......C.CCCC....B",
     "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
 ]
