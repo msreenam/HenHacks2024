@@ -11,6 +11,9 @@ class Game:
         self.running = True
         self.font = pygame.font.Font("minigame/Arial.ttf", 32)
 
+        pygame.mixer.music.load("minigame/birdsong.wav")
+        pygame.mixer.music.play(-1)
+
         self.character_spritesheet = Spritesheet("minigame/images/character.png")
         self.terrain_spritesheet = Spritesheet("minigame/images/terrain.png")
         self.clean_spritesheet = Spritesheet("minigame/images/clean.png")
